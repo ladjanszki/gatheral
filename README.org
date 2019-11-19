@@ -1,0 +1,8 @@
+* What is this?
+In this repository I have all the code for the experiments with the volatility fitting method suggested by Gatheral.
+* Details
+In the Black-Scholes world there is a problem with implied volatility, namely it changes with the strike price.
+This is not an interpretable more like an artifact of the Black-Scholes model (so called volatility smile).
+In practice we never have the implied volatility for all option prices we only have a few points.
+The question is: how can we fit a proper curve to the measured (market) points in a way that the model class implicitly have constraints agains arbitrage.
+Gatheral solved this question.
