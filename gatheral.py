@@ -11,35 +11,23 @@ import util
 ticker = 'TSLA'
 maturity = '2019-11-29'
 
-## Get data from Yahoo finance and save for testing
+# Get data from Yahoo finance and save for testing
 #data = util.getData(ticker, maturity)
 #nowString = datetime.datetime.now().strftime('%Y_%m_%d-%H_%M_%S')
 #fileName = ticker + '__' + nowString
 #data.to_csv(fileName)
 
 # Read existing data
-
 #df = pd.read_csv('TSLA__2019_11_19-19_29_07')
 df = pd.read_csv('TSLA__2019_11_19-20_10_38')
 
-# TODO Get rid of implied volatility undex 1E-4
+print(df.shape)
 
+# Get rid of implied volatility under 1E-4
+trh = 10E-4
+df = df.drop(df[df['impliedVolatility'] < trh].index)
 
-# In yahoo finance implied volatility is Standard Deviation
-
-# a = 1.0
-# b = 2.0
-# rho = 4.0
-# m = 2.5
-# sigma = 0.2
-# 
-# 
-# K = np.arange(100, 500, 10)
-# print(K)
-# smile = util.rawImpVar(a, b, rho, m, sigma, K)
-# 
-# plt.scatter(K, smile)
-# plt.show()
+print(df.shape)
 
 
 # Get the log-strike and implied volatility
